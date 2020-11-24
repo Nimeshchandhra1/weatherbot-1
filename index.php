@@ -114,14 +114,7 @@ Country: `$country`",
 
 ]);
     }
-else {
-bot('sendmessage', [
-                'chat_id' =>$chat_id,
-                'text' =>"`Sorry, i couldn't find that city or the city dosen't exist.`",
-'parse_mode'=>"MarkDown",
-                
-]);
-if(strpos($text,"/bin") !== false){ 
+}if(strpos($text,"/bin") !== false){ 
 $bin = trim(str_replace("/bin","",$text)); 
 $data = json_decode(file_get_contents("https://lookup.binlist.net/$bin"),true);
 $bank = $data['bank']['name'];
@@ -154,5 +147,4 @@ Checked By @$username***",
 'parse_mode'=>"MarkDown",
 ]);
     }
-}
 }
