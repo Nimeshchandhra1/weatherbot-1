@@ -1,6 +1,6 @@
 <?php
 /*
-BY:- BenchamXd and edited by me
+BY:- BenchamXd and me
 */
 error_reporting(0);
 
@@ -31,7 +31,7 @@ function bot($method,$datas=[]){
   ]);
   }
   
-//====================================//
+//==============NC======================//
 $update = json_decode(file_get_contents('php://input'));
 $message = $update->message;
 $message_id = $update->message->id;
@@ -43,7 +43,7 @@ $fromid = $update->callback_query->from->id;
 $username = $update->message->from->username;
 $chatid = $update->callback_query->message->chat->id;
 $START_MESSAGE = $_ENV['START_MESSAGE'];
-$HELP_MENU = $_ENV['HELP_MENU'];
+$HELP_MESSAGE = $_ENV['HELP_MESSAGE'];
 $API_TOKEN = $_ENV['API_TOKEN'];
 if($text == '/start')
 bot('sendmessage', [
@@ -114,4 +114,45 @@ Country: `$country`",
 
 ]);
     }
+else {
+bot('sendmessage', [
+                'chat_id' =>$chat_id,
+                'text' =>"`Sorry, i couldn't find that city or the city dosen't exist.`",
+'parse_mode'=>"MarkDown",
+                
+]);
+if(strpos($text,"/bin") !== false){ 
+$bin = trim(str_replace("/bin","",$text)); 
+$data = json_decode(file_get_contents("https://lookup.binlist.net/$bin"),true);
+$bank = $data['bank']['name'];
+$country = $data['country']['alpha2'];
+$currency = $data['country']['currency'];
+$emoji = $data['country']['emoji'];
+$scheme = $data['scheme'];
+$Brand = $data['brand'];
+$type = $data['type'];
+ if($data['scheme']){
+bot('sendmessage', [
+                'chat_id' =>$chat_id,
+                'text' =>"***VALID BIN✅
+                
+Bin: $bin
+
+Type: $scheme
+
+Brand : $Brand
+
+Bank: $bank
+
+Country: $country $emoji
+
+Currency: $currency
+
+Credit/Debit:$type
+
+Checked By @$username***",
+'parse_mode'=>"MarkDown",
+]);
+    }
+}
 }
