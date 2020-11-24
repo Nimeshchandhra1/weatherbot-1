@@ -43,7 +43,7 @@ $fromid = $update->callback_query->from->id;
 $username = $update->message->from->username;
 $chatid = $update->callback_query->message->chat->id;
 $START_MESSAGE = $_ENV['START_MESSAGE'];
-$HELP_MESSAGE = $_ENV['HELP_MESSAGE'];
+$HELP_MENU = $_ENV['HELP_MENU'];
 $API_TOKEN = $_ENV['API_TOKEN'];
 if($text == '/start')
 bot('sendmessage', [
