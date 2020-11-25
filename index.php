@@ -147,4 +147,30 @@ Checked By @$username***",
 'parse_mode'=>"MarkDown",
 ]);
     }
-}
+}if($text == '/gen'){
+
+$data = json_decode(file_get_contents("https://randomuser.me/api"),true);
+$first = $data['first'];
+$last = $data['last'];
+$gender = $data['gender'];
+$dob = $data['dob']['date'];
+$age = $data['dob']['age'];
+$street = $data['location']['$street'];
+
+
+bot('sendmessage', [
+                'chat_id' =>$chat_id,
+                'text' =>"
+***FIRST NAME:- ***`$first`
+
+***LAST NAME:-*** `$last`
+
+***DOB***: $dob
+
+***Age*** : $age
+
+***Street*** : $street
+
+***GENDER:-*** $gender",
+'parse_mode'=>"MarkDown",
+                ]);
