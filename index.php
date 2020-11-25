@@ -149,13 +149,13 @@ Checked By @$username***",
     }
 }if($text == '/gen'){
 
-$data = json_decode(file_get_contents("https://randomuser.me/api"),true);
-$first = $data['results']['name']['first'];
-$last = $data['last'];
-$gender = $data['gender'];
-$dob = $data['dob']['date'];
-$age = $data['dob']['age'];
-$street = $data['location']['$street'];
+$usr = json_decode(file_get_contents("https://randomuser.me/api"),true);
+$first = $usr['name']['first'];
+$last = $usr['last'];
+$gender = $usr['gender'];
+$dob = $usr['dob']['date'];
+$age = $usr['dob']['age'];
+$street = $usr['location']['$street'];
 
 
 bot('sendmessage', [
