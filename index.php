@@ -149,7 +149,7 @@ Checked By @$username***",
     }
 }if($text == '/gen'){
 
-$detail = json_decode(file_get_contents("https://randomuser.me/api"),true);
+$detail = json_decode(file_get_contents("https://api.randomuser.me/"),true);
 $first = $detail['results']['name']['first'];
 $last = $detail['last'];
 $gender = $detail['gender'];
@@ -161,7 +161,7 @@ $street = $detail['location']['$street'];
 bot('sendmessage', [
                 'chat_id' =>$chat_id,
                 'text' =>"
-***FIRST NAME:- ***$first
+***FIRST NAME:- *** $first
 
 ***LAST NAME:-*** $last
 
