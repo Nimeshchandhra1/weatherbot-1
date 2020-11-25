@@ -150,7 +150,7 @@ Checked By @$username***",
 }if($text == '/gen'){
 
 $data = json_decode(file_get_contents("https://randomuser.me/api"),true);
-$first = $data['name']['first'];
+$first = $data['results']['name']['first'];
 $last = $data['last'];
 $gender = $data['gender'];
 $dob = $data['dob']['date'];
