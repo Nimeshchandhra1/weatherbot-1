@@ -149,21 +149,21 @@ Checked By @$username***",
     }
 }if($text == '/gen'){
 
-$usr = json_decode(file_get_contents("https://randomuser.me/api"),true);
-$first = $usr['name']['first'];
-$last = $usr['last'];
-$gender = $usr['gender'];
-$dob = $usr['dob']['date'];
-$age = $usr['dob']['age'];
-$street = $usr['location']['$street'];
+$detail = json_decode(file_get_contents("https://randomuser.me/api"),true);
+$first = $detail['results']['name']['first'];
+$last = $detail['last'];
+$gender = $detail['gender'];
+$dob = $detail['dob']['date'];
+$age = $detail['dob']['age'];
+$street = $detail['location']['$street'];
 
 
 bot('sendmessage', [
                 'chat_id' =>$chat_id,
                 'text' =>"
-***FIRST NAME:- ***`$first`
+***FIRST NAME:- ***$first
 
-***LAST NAME:-*** `$last`
+***LAST NAME:-*** $last
 
 ***DOB***: $dob
 
