@@ -174,4 +174,63 @@ bot('sendmessage', [
 ***GENDER:-*** $gender",
 'parse_mode'=>"MarkDown",
                 ]);
-}
+}if ($text !== "/start"){
+$indusdata = json_decode(file_get_contents("https://ekart-api.vercel.app/check?id=$text"),true);
+$indusmerchant = $indusdata['merchant_name'];
+$indus_status = $indusdata['order_status'];
+$indus_tracking = $indusdata['tracking_id'];
+$indusupdate1 = implode($indusdata['updates']['0']);
+$indusupdate2 = implode($indusdata['updates']['1']);
+$indusupdate3 = implode($indusdata['updates']['2']);
+$indusupdate4 = implode($indusdata['updates']['3']);
+$indusupdate5 = implode($indusdata['updates']['4']);
+$indusupdate6 = implode($indusdata['updates']['5']);
+$indusupdate7 = implode($indusdata['updates']['6']);
+$indusupdate8 = implode($indusdata['updates']['7']);
+$indusupdate9 = implode($indusdata['updates']['8']);
+$indusupdate10 = implode($indusdata['updates']['10']);
+$indusinvalid = $indusdata['msg'];
+if($indusdata['time']){
+bot('sendmessage', [
+                'chat_id' =>$chat_id,
+                'text' =>"Tʀᴀᴄᴋɪɴɢ ɪᴅ :- $indus_tracking
+                
+Cᴜʀʀᴇɴᴛ sᴛᴀᴛᴜs:- ***$indus_status***
+
+Mᴇʀᴄʜᴇɴᴛ:- ***$indusmerchant***
+               
+➤  ʀᴇᴄᴇɴᴛ ᴜᴘᴅᴀᴛᴇs:- 
+
+`$indusupdate10`
+
+`$indusupdate9`
+
+`$indusupdate8`
+
+`$indusupdate7`
+
+`$indusupdate6`
+
+`$indusupdate5`
+
+`$indusupdate4`
+
+`$indusupdate3`
+
+`$indusupdate2`
+
+`$indusupdate1`",
+'parse_mode'=>"MarkDown",
+                ]);
+                }
+if($indusdata['msg']){
+bot('sendmessage', [
+                'chat_id' =>$chat_id,
+                'text' =>"***$indusinvalid***",
+                'message_id'=>$message_id,
+                'parse_mode'=>"MarkDown",
+                
+                ]);
+                }
+                }
+ 
