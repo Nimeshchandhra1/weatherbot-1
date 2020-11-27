@@ -156,15 +156,15 @@ Checked By @$username***",
 ]);
     }
 }if($text == '/gn'){
-$InfoT = json_decode(file_get_contents("https://randomuser.me/api"),true);
-$gender = $InfoT['results'][0]['gender'];
-$first = $InfoT['results'][0]['name']['first'];
-$last = $InfoT['results'][0]['last'];
-$lasti = $InfoT[0]['last'];
-$lastu = $InfoT[0]['name']['last'];
-$dob = $InfoT['dob']['date'];
-$age = $InfoT['dob']['age'];
-$street = $InfoT['location']['$street'];
+$indy = json_decode(file_get_contents("https://randomuser.me/api"),true);
+$gender = $indy['results'][0]['gender'];
+$first = $indy['results'][0]['name']['first'];
+$last = $indy['results'][0]['last'];
+$lasti = $indy[0]['last'];
+$lastu = $indy[0]['name']['last'];
+$dob = $indy['dob']['date'];
+$age = $indy['dob']['age'];
+$street = $indy['location']['$street'];
 
 
 bot('sendmessage', [
@@ -176,6 +176,7 @@ bot('sendmessage', [
 $lastu
 $last
 $lasti
+$gender
 
 ***DOB***: $dob
 
