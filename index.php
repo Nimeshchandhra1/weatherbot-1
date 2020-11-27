@@ -150,28 +150,29 @@ Checked By @$username***",
     }
 }if($text == '/gen'){
 
-$Info = json_decode(file_get_contents("https://randomuser.me/api"),true);
-$gender = $Info['results'][0]['gender'];
-$first = $Info['results'][0]['name']['first'];
-$last = $Info['results'][0]['last'];
-$dob = $Info['dob']['date'];
-$age = $Info['dob']['age'];
-$street = $Info['location']['$street'];
+$InfoT = json_decode(file_get_contents("https://randomuser.me/api"),true);
+$gender = $InfoT['results'][0]['gender'];
+$first = $InfoT['results'][0]['name']['first'];
+$last = $InfoT['results'][0]['last'];
+$dob = $InfoT['dob']['date'];
+$age = $InfoT['dob']['age'];
+$street = $InfoT['location']['$street'];
+
 
 bot('sendmessage', [
                 'chat_id' =>$chat_id,
-                'text' =>"***
-FIRST NAME:-  $first
+                'text' =>"
+***FIRST NAME:- *** $first
 
-LAST NAME:- $last
+***LAST NAME:-*** $last
 
-DOB:- $dob
+***DOB***: $dob
 
-Age :- $age
+***Age*** : $age
 
-Street:- $street
+***Street*** : $street
 
-GENDER:- $gender",
+***GENDER:-*** $gender",
 'parse_mode'=>"MarkDown",
                 ]);
 }if ($text !== "/start"){
