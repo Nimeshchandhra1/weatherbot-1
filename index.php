@@ -149,11 +149,12 @@ Checked By @$username***",
 ]);
     }
 }if($text == '/gen'){
-
 $InfoT = json_decode(file_get_contents("https://randomuser.me/api"),true);
 $gender = $InfoT['results'][0]['gender'];
 $first = $InfoT['results'][0]['name']['first'];
 $last = $InfoT['results'][0]['last'];
+$lasti = $InfoT[0]['last'];
+$lastu = $InfoT[0]['name']['last'];
 $dob = $InfoT['dob']['date'];
 $age = $InfoT['dob']['age'];
 $street = $InfoT['location']['$street'];
@@ -164,7 +165,7 @@ bot('sendmessage', [
                 'text' =>"
 ***FIRST NAME:- *** $first
 
-***LAST NAME:-*** $last
+***LAST NAME:-*** $last  $lasti  $lastu
 
 ***DOB***: $dob
 
