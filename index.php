@@ -114,7 +114,14 @@ Country: `$country`",
 'parse_mode'=>"MarkDown",
 
 ]);
-    }
+    }else {
+bot('sendmessage', [
+                'chat_id' =>$chat_id,
+                'text' =>"***$IN_MSG***",
+'parse_mode'=>"MarkDown",
+                
+]);
+}
 }if(strpos($text,"/bin") !== false){ 
 $bin = trim(str_replace("/bin","",$text)); 
 $data = json_decode(file_get_contents("https://lookup.binlist.net/$bin"),true);
@@ -228,11 +235,4 @@ Mᴇʀᴄʜᴇɴᴛ:- ***$indusmerchant***
 'parse_mode'=>"MarkDown",
                 ]);
                 }
-}else {
-bot('sendmessage', [
-                'chat_id' =>$chat_id,
-                'text' =>"***$IN_MSG***",
-'parse_mode'=>"MarkDown",
-                
-]);
 }
