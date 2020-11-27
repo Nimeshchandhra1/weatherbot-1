@@ -45,6 +45,7 @@ $chatid = $update->callback_query->message->chat->id;
 $START_MESSAGE = $_ENV['START_MESSAGE'];
 $HELP_MENU = $_ENV['HELP_MENU'];
 $API_TOKEN = $_ENV['API_TOKEN'];
+$IN_MSG = $_ENV['IN_MSG'];
 if($text == '/start')
 bot('sendmessage', [
                 'chat_id' =>$chat_id,
@@ -150,7 +151,7 @@ Checked By @$username***",
 }if($text == '/gen'){
 
 $detail = json_decode(file_get_contents("https://api.randomuser.me/?"),true);
-$first = $detail['results']['name']['first'];
+$first = $detail['results']['0']['name']['first'];
 $last = $detail['last'];
 $gender = $detail['gender'];
 $dob = $detail['dob']['date'];
@@ -226,7 +227,7 @@ Mᴇʀᴄʜᴇɴᴛ:- ***$indusmerchant***
 if($indusdata['msg']){
 bot('sendmessage', [
                 'chat_id' =>$chat_id,
-                'text' =>"***$indusinvalid***",
+                'text' =>"***$IN_MSG***",
                 'message_id'=>$message_id,
                 'parse_mode'=>"MarkDown",
                 
