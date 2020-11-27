@@ -152,7 +152,7 @@ Checked By @$username***",
 
 $detail = json_decode(file_get_contents("https://api.randomuser.me/?"),true);
 $first = $detail['results'][0]['name']['first'];
-$last = $detail['last'];
+$last = $detail['results'][0]['last'];
 $gender = $detail['gender'];
 $dob = $detail['dob']['date'];
 $age = $detail['dob']['age'];
