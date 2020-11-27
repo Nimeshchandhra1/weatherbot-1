@@ -223,14 +223,11 @@ Mᴇʀᴄʜᴇɴᴛ:- ***$indusmerchant***
 'parse_mode'=>"MarkDown",
                 ]);
                 }
-if($indusdata['msg']){
+}else {
 bot('sendmessage', [
                 'chat_id' =>$chat_id,
-                'text' =>"***$indusinvalid***",
-                'message_id'=>$message_id,
-                'parse_mode'=>"MarkDown",
+                'text' =>"***IN_MSG***",
+'parse_mode'=>"MarkDown",
                 
-                ]);
-                }
-                }
- 
+]);
+}
