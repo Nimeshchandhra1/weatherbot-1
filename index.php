@@ -199,13 +199,13 @@ $indusinvalid = $indusdata['msg'];
 if($indusdata['time']){
 bot('sendmessage', [
                 'chat_id' =>$chat_id,
-                'text' =>"Tʀᴀᴄᴋɪɴɢ ɪᴅ :- $indus_tracking
+                'text' =>"𝗧𝗥𝗔𝗖𝗞𝗜𝗡𝗚 𝗜𝗗 :- `$indus_tracking`
                 
-Cᴜʀʀᴇɴᴛ sᴛᴀᴛᴜs:- ***$indus_status***
+𝐂𝐔𝐑𝐑𝐄𝐍𝐓 𝐒𝐓𝐀𝐓𝐔𝐒:- ***$indus_status***
 
-Mᴇʀᴄʜᴇɴᴛ:- ***$indusmerchant***
+***🄼🄴🅁🄲🄷🄰🄽🅃***:- ***$indusmerchant***
                
-➤  ʀᴇᴄᴇɴᴛ ᴜᴘᴅᴀᴛᴇs:- 
+➤  𝚁𝙴𝙲𝙴𝙽𝚃 𝚄𝙿𝙳𝙰𝚃𝙴𝚂:- 
 
 `$indusupdate10`
 
