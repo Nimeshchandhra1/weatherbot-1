@@ -70,8 +70,8 @@ _Type /joke for more_",
 $data = json_decode(file_get_contents("https://api.quotable.io/random"),true);
 $text = $data['content'];
 $author = $data['author'];
-$id = $data['_id']
-$tag = "#" . implode(" #", $data[0]['tags']);
+$tag = $data[0]['tags'];
+$id = $data['_id'];
 
 bot('sendmessage', [
                 'chat_id' =>$chat_id,
