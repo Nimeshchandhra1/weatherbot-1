@@ -42,6 +42,7 @@ $text = $message->text;
 $fromid = $update->callback_query->from->id;
 $username = $update->message->from->username;
 $chatid = $update->callback_query->message->chat->id;
+$msg = isset($update->message->text)?$update->message->text:'';
 $START_MESSAGE = $_ENV['START_MESSAGE'];
 $HELP_MENU = $_ENV['HELP_MENU'];
 $API_TOKEN = $_ENV['API_TOKEN'];
