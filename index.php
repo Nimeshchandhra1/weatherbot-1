@@ -4,9 +4,12 @@ SOURCE CODE BY:- @Benchamxd
 CHANNEL:- @INDUSBOTS
 PLEASE DONT REMOVE THE CREDIT
 */
-ob_start();
+error_reporting(0);
+
+set_time_limit(0);
+
+flush();
 define('API_KEY','1443581629:AAG67TE-sesAPbiFxPwRlGVPyYdpmOF1WqU');
-ini_set("log_errors","off");
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////
 function indusbots($method,$datas=[]){
