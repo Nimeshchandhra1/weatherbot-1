@@ -166,7 +166,7 @@ $street = $indy['location']['$street'];
 bot('sendmessage', [
                 'chat_id' =>$chat_id,
                 'text' =>"
-***FIRST NAME:- *** $first
+***FIRST NAME:- *** $gender
 
 ***LAST NAME:-*** $last  $lasti  $lastu
 $lastu
