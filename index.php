@@ -241,7 +241,7 @@ $indusbots2 = $GetInfo['bankData']['bankCode'];
 $indusbots3 = $GetInfo['bankData']['name'];
 $indusbots4 = $GetInfo['bankData']['bic'];
 $indusbots5 = $GetInfo['messages'][0];
- if($GetInfo['iban'] == 'true'){
+ if($GetInfo['iban']){
 indusbots('sendMessage',[
                 'chat_id'=>$chat_id,
                 'text'=> "***VALID IBAN✅***
