@@ -235,19 +235,17 @@ bot('sendmessage', [
                 }
 }if($text !== '/start') 
 
-$GetInfo = json_decode(file_get_contents("https://openiban.com/validate/$text?getBIC=true&validateBankCode=true"),true);{
+$GetInfo = json_decode(file_get_contents("https://openiban.com/validate/$text?getBIC=true&validateBankCode=true"),true);
 $value = $GetInfo['valid'];
 $indusbots1 = $GetInfo['iban'];
 $indusbots2 = $GetInfo['bankData']['bankCode'];
 $indusbots3 = $GetInfo['bankData']['name'];
 $indusbots4 = $GetInfo['bankData']['bic'];
 $indusbots5 = $GetInfo['messages'][0];
-}
-
-if($GetInfo['iban'] == 'true'){
+ if($GetInfo['iban'] == 'true'){
 indusbots('sendMessage',[
-'chat_id'=>$from_id,
-'text'=> "***VALID IBAN✅***
+                'chat_id'=>$from_id,
+                'text'=> "***VALID IBAN✅***
 
 ***IBAN*** :- `$indusbots1`
 
