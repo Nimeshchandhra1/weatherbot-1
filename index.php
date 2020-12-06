@@ -80,9 +80,9 @@ bot('sendmessage', [
 
 ***AUTHOR:-*** `$author`
 
-***TAGS:-*** $tag"
+***TAGS:-*** $tag
 
-___ID___ :- $id
+___ID___ :- $id",
 'parse_mode'=>"MarkDown",
                 ]);
 }if($text == '/help')
