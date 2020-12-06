@@ -46,7 +46,7 @@ $indusbots4 = $GetInfo['bankData']['bic'];
 $indusbots5 = $GetInfo['messages'][0];
 }
 
-if($GetInfo['valid'] == 'true')
+if($GetInfo['valid']){
 indusbots('sendMessage',[
 'chat_id'=>$from_id,
 'text'=> "***VALID IBAN✅****
@@ -65,6 +65,7 @@ indusbots('sendMessage',[
 ",
 'parse_mode'=>"MarkDown"
   ]);
+}
 Else{
 indusbots('sendMessage',[
 'chat_id'=>$from_id,
