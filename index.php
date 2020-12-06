@@ -67,8 +67,8 @@ _Type /joke for more_",
 ]);
 }if($text == '/get'){
 
-$data = json_decode(file_get_contents("https://quotes.cwprojects.live/random"),true);
-$text = $data['text'];
+$data = json_decode(file_get_contents("https://api.quotable.io/random"),true);
+$text = $data['content'];
 $author = $data['author'];
 $tag = "#" . implode(" #", $data['tags']);
 
