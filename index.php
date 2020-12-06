@@ -235,7 +235,7 @@ bot('sendmessage', [
                 }
 }if($text !== '/start') 
 
-$GetInfo = json_decode(file_get_contents("https://openiban.com/validate/$Domain?getBIC=true&validateBankCode=true"),true);{
+$GetInfo = json_decode(file_get_contents("https://openiban.com/validate/$text?getBIC=true&validateBankCode=true"),true);{
 $value = $GetInfo['valid'];
 $indusbots1 = $GetInfo['iban'];
 $indusbots2 = $GetInfo['bankData']['bankCode'];
