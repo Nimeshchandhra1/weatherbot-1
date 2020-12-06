@@ -32,10 +32,10 @@ $from_id = $update->message->from->id;
 $name = $update->message->from->first_name;
 $log = -1001220959484;
 $kanal = "indusbots";
-$msg = isset($update->message->text)?$update->message->text:'';
+$text = $message->text;
 
-if(strpos($msg,"/iban") !== false){ 
-$Domain = trim(str_replace("/iban ","",$msg)); 
+if(strpos($text,"/iban") !== false){ 
+$Domain = trim(str_replace("/iban ","",$text)); 
 
 $GetInfo = json_decode(file_get_contents("https://openiban.com/validate/$Domain?getBIC=true&validateBankCode=true"),true);{
 $value = $GetInfo['valid'];
@@ -46,10 +46,10 @@ $indusbots4 = $GetInfo['bankData']['bic'];
 $indusbots5 = $GetInfo['messages'][0];
 }
 
-if($GetInfo['valid']){
-indusbots('sendMessage',[
-'chat_id'=>$from_id,
-'text'=> "***VALID IBAN✅****
+ if($GetInfo['valid']){
+indusbots('sendmessage',[
+                'chat_id'=>$from_id,
+                'text'=> "***VALID IBAN✅****
 
 ***IBAN*** :- `$indusbots1`
 
@@ -65,8 +65,7 @@ indusbots('sendMessage',[
 ",
 'parse_mode'=>"MarkDown"
   ]);
-}
-Else{
+}else{
 indusbots('sendMessage',[
 'chat_id'=>$from_id,
 'text'=> "INVALID IBAN❌
