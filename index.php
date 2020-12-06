@@ -71,12 +71,12 @@ $data = json_decode(file_get_contents("https://api.quotable.io/random"),true);
 $text = $data['content'];
 $author = $data['author'];
 $id = $data['_id']
-$tag = "#" . implode(" #", $data['tags']);
+$tag = "#" . implode(" #", $data[0]['tags']);
 
 bot('sendmessage', [
                 'chat_id' =>$chat_id,
                 'text' =>"
-***QUOTE:- ***`$text`
+***QUOTES:- ***`$text`
 
 ***AUTHOR:-*** `$author`
 
