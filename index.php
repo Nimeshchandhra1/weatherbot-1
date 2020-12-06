@@ -70,6 +70,7 @@ _Type /joke for more_",
 $data = json_decode(file_get_contents("https://api.quotable.io/random"),true);
 $text = $data['content'];
 $author = $data['author'];
+$id = $data['_id']
 $tag = "#" . implode(" #", $data['tags']);
 
 bot('sendmessage', [
@@ -79,7 +80,9 @@ bot('sendmessage', [
 
 ***AUTHOR:-*** `$author`
 
-***TAGS:-*** $tag",
+***TAGS:-*** $tag"
+
+___ID___ :- $id
 'parse_mode'=>"MarkDown",
                 ]);
 }if($text == '/help')
