@@ -1,233 +1,107 @@
 <?php
 /*
-BY:- BenchamXd and me
+SOURCE CODE BY:- @Benchamxd
+CHANNEL:- @INDUSBOTS
+PLEASE DONT REMOVE THE CREDIT
 */
-error_reporting(0);
-
-set_time_limit(0);
-
-flush();
-$API_KEY = $_ENV['BOT_TOKEN']; //Your token
-##------------------------------##
-define('API_KEY',$API_KEY);
-function bot($method,$datas=[]){
-    $url = "https://api.telegram.org/bot".API_KEY."/".$method;
-    $ch = curl_init();
-    curl_setopt($ch,CURLOPT_URL,$url);
-    curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
-    curl_setopt($ch,CURLOPT_POSTFIELDS,$datas);
-    $res = curl_exec($ch);
-    if(curl_error($ch)){
-        var_dump(curl_error($ch));
-    }else{
-        return json_decode($res);
-    }
+ob_start();
+define('API_KEY','1443581629:AAG67TE-sesAPbiFxPwRlGVPyYdpmOF1WqU');
+ini_set("log_errors","off");
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+function indusbots($method,$datas=[]){
+$url = "https://api.telegram.org/bot".API_KEY."/".$method;
+$ch = curl_init();
+curl_setopt($ch,CURLOPT_URL,$url);
+curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+curl_setopt($ch,CURLOPT_POSTFIELDS,$datas);
+$res = curl_exec($ch);
+if(curl_error($ch)){
+var_dump(curl_error($ch));
+}else{
+return json_decode($res);
 }
- function sendmessage($chat_id, $text, $model){
-  bot('sendMessage',[
-  'chat_id'=>$chat_id,
-  'text'=>$text,
-  'parse_mode'=>$mode
-  ]);
-  }
-  
-//==============NC======================//
+}
 $update = json_decode(file_get_contents('php://input'));
-$message = $update->message;
-$message_id = $update->message->id;
-$chat_id = $message->chat->id;
-$name = $from_id = $message->from->first_name;
-$from_id = $message->from->id;
-$text = $message->text;
-$fromid = $update->callback_query->from->id;
-$username = $update->message->from->username;
-$chatid = $update->callback_query->message->chat->id;
-$START_MESSAGE = $_ENV['START_MESSAGE'];
-$HELP_MENU = $_ENV['HELP_MENU'];
-$API_TOKEN = $_ENV['API_TOKEN'];
-if($text == '/start')
-bot('sendmessage', [
-                'chat_id' =>$chat_id,
-                'text' =>"***$START_MESSAGE***",
-'parse_mode'=>"MarkDown",
-]);
-if($text == '/joke'){
-$jok = json_decode(file_get_contents('https://sv443.net/jokeapi/v2/joke/Any?type=single'),true);
-$joke = $jok['joke'];
-$catg = $jok['category'];
-bot('sendmessage',[
+$chat_id = $update->message->chat->id;
+$message_id = $update->message->message_id;
+$from_id = $update->message->from->id;
+$name = $update->message->from->first_name;
+$log = -1001220959484;
+$kanal = "indusbots";
+$msg = isset($update->message->text)?$update->message->text:'';
+
+if(strpos($msg,"/iban") !== false){ 
+$Domain = trim(str_replace("/iban ","",$msg)); 
+
+$GetInfo = json_decode(file_get_contents("https://openiban.com/validate/$Domain?getBIC=true&validateBankCode=true"),true);{
+$value = $GetInfo['valid'];
+$indusbots1 = $GetInfo['iban'];
+$indusbots2 = $GetInfo['bankData']['bankCode'];
+$indusbots3 = $GetInfo['bankData']['name'];
+$indusbots4 = $GetInfo['bankData']['bic'];
+$indusbots5 = $GetInfo['messages'][0];
+}
+
+if($GetInfo['valid'] == 'true')
+indusbots('sendMessage',[
 'chat_id'=>$from_id,
-'text'=>"`$joke`
+'text'=> "***VALID IBAN✅****
 
-Catogery:- `$catg`
+***IBAN*** :- `$indusbots1`
 
-_Type /joke for more_",
-'parse_mode'=>"MarkDown",
-]);
-}if($text == '/get'){
+***BANK CODE*** :- `$indusbots2`
 
-$data = json_decode(file_get_contents("https://quotes.cwprojects.live/random"),true);
-$text = $data['text'];
-$author = $data['author'];
-$tag = "#" . implode(" #", $data['tags']);
+***BANK NAME*** :- `$indusbots3`
 
-bot('sendmessage', [
-                'chat_id' =>$chat_id,
-                'text' =>"
-***QUOTE:- ***`$text`
+***BIC*** :- `$indusbots4`
 
-***AUTHOR:-*** `$author`
+***RESPONCE*** :- `$indusbots5`
 
-***TAGS:-*** $tag",
-'parse_mode'=>"MarkDown",
-                ]);
-}if($text == '/help')
-bot('sendmessage', [
-                'chat_id' =>$chat_id,
-                'text' =>"$HELP_MENU"
-]);
-if($text !== '/start'){
-$resp = json_decode(file_get_contents("http://api.openweathermap.org/data/2.5/weather?q=$text&appid=$API_TOKEN"),true);
-$weather = $resp['weather'][0]['main'];
-$description = $resp['weather'][0]['description'];
-$temp = $resp['main']['temp'];
-$humidity = $resp['main']['humidity'];
-$feels_like = $resp['main']['feels_like'];
-$country = $resp['sys']['country'];
-$nme = $resp['name'];
-$kelvin = 273;
-$celcius = $temp - $kelvin;
-$feels = $feels_like - $kelvin;
- if($weather['name']){
-bot('sendmessage', [
-                'chat_id' =>$chat_id,
-                'text' =>"Weather at ***$text*** is `$weather`
-                
-Temp : `$celcius °C`
+***THANKS TO @BENCHAMXD FOR THIS SOURCE***
+",
+'parse_mode'=>"MarkDown"
+  ]);
+Else{
+indusbots('sendMessage',[
+'chat_id'=>$from_id,
+'text'=> "INVALID IBAN❌
 
-Feels Like : `$feels °C`
+***IBAN*** :- `$indusbots1`
 
-Humidity: `$humidity`
+***BANK CODE*** :- `$indusbots2`
 
-Country: `$country`",
-'parse_mode'=>"MarkDown",
+***BANK NAME*** :- `$indusbots3`
 
-]);
-    }
-}if(strpos($text,"/bin") !== false){ 
-$bin = trim(str_replace("/bin","",$text)); 
-$data = json_decode(file_get_contents("https://lookup.binlist.net/$bin"),true);
-$bank = $data['bank']['name'];
-$country = $data['country']['alpha2'];
-$currency = $data['country']['currency'];
-$emoji = $data['country']['emoji'];
-$scheme = $data['scheme'];
-$Brand = $data['brand'];
-$type = $data['type'];
- if($data['scheme']){
-bot('sendmessage', [
-                'chat_id' =>$chat_id,
-                'text' =>"***VALID BIN✅
-                
-Bin: $bin
+***BIC*** :- `$indusbots4`
 
-Type: $scheme
+***RESPONCE*** :- `$indusbots5`
 
-Brand : $Brand
-
-Bank: $bank
-
-Country: $country $emoji
-
-Currency: $currency
-
-Credit/Debit:$type
-
-Checked By @$username***",
-'parse_mode'=>"MarkDown",
-]);
-    }
-}if($text == '/gen'){
-
-$detail = json_decode(file_get_contents("https://api.randomuser.me/?"),true);
-$first = $detail['results']['name']['first'];
-$last = $detail['last'];
-$gender = $detail['gender'];
-$dob = $detail['dob']['date'];
-$age = $detail['dob']['age'];
-$street = $detail['location']['$street'];
-
-
-bot('sendmessage', [
-                'chat_id' =>$chat_id,
-                'text' =>"
-***FIRST NAME:- *** $first
-
-***LAST NAME:-*** $last
-
-***DOB***: $dob
-
-***Age*** : $age
-
-***Street*** : $street
-
-***GENDER:-*** $gender",
-'parse_mode'=>"MarkDown",
-                ]);
-}if ($text !== "/start"){
-$indusdata = json_decode(file_get_contents("https://ekart-api.vercel.app/check?id=$text"),true);
-$indusmerchant = $indusdata['merchant_name'];
-$indus_status = $indusdata['order_status'];
-$indus_tracking = $indusdata['tracking_id'];
-$indusupdate1 = implode($indusdata['updates']['0']);
-$indusupdate2 = implode($indusdata['updates']['1']);
-$indusupdate3 = implode($indusdata['updates']['2']);
-$indusupdate4 = implode($indusdata['updates']['3']);
-$indusupdate5 = implode($indusdata['updates']['4']);
-$indusupdate6 = implode($indusdata['updates']['5']);
-$indusupdate7 = implode($indusdata['updates']['6']);
-$indusupdate8 = implode($indusdata['updates']['7']);
-$indusupdate9 = implode($indusdata['updates']['8']);
-$indusupdate10 = implode($indusdata['updates']['10']);
-$indusinvalid = $indusdata['msg'];
-if($indusdata['time']){
-bot('sendmessage', [
-                'chat_id' =>$chat_id,
-                'text' =>"Tʀᴀᴄᴋɪɴɢ ɪᴅ :- $indus_tracking
-                
-Cᴜʀʀᴇɴᴛ sᴛᴀᴛᴜs:- ***$indus_status***
-
-Mᴇʀᴄʜᴇɴᴛ:- ***$indusmerchant***
-               
-➤  ʀᴇᴄᴇɴᴛ ᴜᴘᴅᴀᴛᴇs:- 
-
-`$indusupdate10`
-
-`$indusupdate9`
-
-`$indusupdate8`
-
-`$indusupdate7`
-
-`$indusupdate6`
-
-`$indusupdate5`
-
-`$indusupdate4`
-
-`$indusupdate3`
-
-`$indusupdate2`
-
-`$indusupdate1`",
-'parse_mode'=>"MarkDown",
-                ]);
-                }
-}else {
-bot('sendmessage', [
-                'chat_id' =>$chat_id,
-                'text' =>"***IN_MSG***",
-'parse_mode'=>"MarkDown",
-                
+***THANKS TO @BENCHAMXD FOR THIS CODE***",
+'parse_mode'=>"MarkDown"
 ]);
 }
+}else{
+ indusbots('sendMessage',[
+'chat_id'=>$from_id,
+'text'=> "***Hello $name,
+
+Im a Iban checker bot
+
+use*** `/iban xxxxxxxx`
+
+
+***JOIN @INDUSBOTS FOR MORE FREE BOT SOURCES***",
+'parse_mode'=>"MarkDown"
+]);
+/*
+SOURCE CODE BY:- @Benchamxd
+CHANNEL:- @INDUSBOTS
+PLEASE DONT REMOVE THE CREDIT
+*/
+}
+
+
+
+
+
