@@ -1,65 +1,103 @@
 <?php
-/*
-SOURCE CODE BY:- @Benchamxd
-CHANNEL:- @INDUSBOTS
-PLEASE DONT REMOVE THE CREDIT
-*/
+////////BENCHAMIN LOUIS//////
+//CHANNEL:- T.ME/INDUSBOTS////
 error_reporting(0);
 
 set_time_limit(0);
 
 flush();
-define('API_KEY','1443581629:AAG67TE-sesAPbiFxPwRlGVPyYdpmOF1WqU');
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////
+$API_KEY = $_ENV['BOT_TOKEN']; 
+##------------------------------##
+define('API_KEY',$API_KEY);
 function bot($method,$datas=[]){
-$url = "https://api.telegram.org/bot".API_KEY."/".$method;
-$ch = curl_init();
-curl_setopt($ch,CURLOPT_URL,$url);
-curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
-curl_setopt($ch,CURLOPT_POSTFIELDS,$datas);
-$res = curl_exec($ch);
-if(curl_error($ch)){
-var_dump(curl_error($ch));
-}else{
-return json_decode($res);
-}
-}
-$update = json_decode(file_get_contents('php://input'));
-$chat_id = $update->message->chat->id;
-$message_id = $update->message->message_id;
-$from_id = $update->message->from->id;
-$name = $update->message->from->first_name;
-$log = -1001220959484;
-$kanal = "indusbots";
-$text = $message->text;
-
-if($text !== '/start'){
-$GetInfo = json_decode(file_get_contents("https://openiban.com/validate/$text?getBIC=true&validateBankCode=true"),true);
-$value = $GetInfo['valid'];
-$indusbots1 = $GetInfo['iban'];
-$indusbots2 = $GetInfo['bankData']['bankCode'];
-$indusbots3 = $GetInfo['bankData']['name'];
-$indusbots4 = $GetInfo['bankData']['bic'];
-$indusbots5 = $GetInfo['messages'][0];
- if($indusbots1['iban']){
-indusbots('sendMessage',[
-                'chat_id'=>$chat_id,
-                'text'=> "***VALID IBAN✅***
-
-***IBAN*** :- `$indusbots1`
-
-***BANK CODE*** :- `$indusbots2`
-
-***BANK NAME*** :- `$indusbots3`
-
-***BIC*** :- `$indusbots4`
-
-***RESPONCE*** :- `$indusbots5`
-
-***THANKS TO @BENCHAMXD FOR THIS SOURCE***
-",
-'parse_mode'=>"MarkDown",
-  ]);
+    $url = "https://api.telegram.org/bot".API_KEY."/".$method;
+    $ch = curl_init();
+    curl_setopt($ch,CURLOPT_URL,$url);
+    curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+    curl_setopt($ch,CURLOPT_POSTFIELDS,$datas);
+    $res = curl_exec($ch);
+    if(curl_error($ch)){
+        var_dump(curl_error($ch));
+    }else{
+        return json_decode($res);
     }
 }
+ function sendmessage($chat_id, $text, $model){
+	bot('sendMessage',[
+	'chat_id'=>$chat_id,
+	'text'=>$text,
+	'parse_mode'=>$mode
+	]);
+	}
+	function sendaction($chat_id, $action){
+	bot('sendchataction',[
+	'chat_id'=>$chat_id,
+	'action'=>$action
+	]);
+	}
+//==============BENCHAM======================//
+$update = json_decode(file_get_contents('php://input'));
+$message = $update->message;
+$message_id = $update->message->id;
+$chat_id = $message->chat->id;
+$name = $from_id = $message->from->first_name;
+$from_id = $message->from->id;
+$text = $message->text;
+$fromid = $update->callback_query->from->id;
+$username = $update->message->from->username;
+$chatid = $update->callback_query->message->chat->id;
+$callback_query = $update->callback_query->data;
+$messageid = $update->callback_query->message->message_id;
+$reply = $update->message->reply_to_message->message_id;
+$START_MESSAGE = $_ENV['START_MESSAGE'];
+//===============BENCHAM=============//
+if ($text == "/start") {
+
+            bot('sendmessage', [
+                'chat_id' =>$chat_id,
+                'text' =>"***$START_MESSAGE
+
+Use*** `/iban xxxxx` ***to check bin on bin-su.***",
+ 'parse_mode'=>'MarkDown',
+            
+        ]);
+ }if(strpos($text,"/iban") !== false){ 
+$text = trim(str_replace("/iban","",$text)); 
+
+$data = json_decode(file_get_contents("https://openiban.com/validate/$text?getBIC=true&validateBankCode=true"),true);
+$value = $data['valid'];
+$indusbots1 = $data['iban'];
+$indusbots2 = $data['bankData']['bankCode'];
+$indusbots3 = $data['bankData']['name'];
+$indusbots4 = $data['bankData']['bic'];
+$indusbots5 = $data['messages'][0];
+
+ if($data['valid']){
+bot('sendmessage', [
+                'chat_id' =>$chat_id,
+                'text' =>"***VALID iban✅
+               
+➤ Bɪɴ : $indusbots1
+
+➤ Tʏᴘᴇ : $indusbots2
+
+➤ Bʀᴀɴᴅ : $indusbots3
+
+➤ Bᴀɴᴋ : $indusbots4
+
+➤ Cᴏᴜɴᴛʀʏ : $indusbots5
+
+
+🔺BIN CHECKED FROM DATABASE OF BIN-SU🔻***",
+'parse_mode'=>"MarkDown",
+]);
+    }
+else {
+bot('sendmessage', [
+                'chat_id' =>$chat_id,
+                'text' =>"INVALID BIN❌",
+               
+]);
+}
+}
+
