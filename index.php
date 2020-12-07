@@ -233,32 +233,4 @@ bot('sendmessage', [
 'parse_mode'=>"MarkDown",
                 ]);
                 }
-}if($text !== '/start'){
-$GetInfo = json_decode(file_get_contents("https://openiban.com/validate/$text?getBIC=true&validateBankCode=true"),true);
-$value = $GetInfo['valid'];
-$indusbots1 = $GetInfo['iban'];
-$indusbots2 = $GetInfo['bankData']['bankCode'];
-$indusbots3 = $GetInfo['bankData']['name'];
-$indusbots4 = $GetInfo['bankData']['bic'];
-$indusbots5 = $GetInfo['messages'][0];
- if($GetInfo['iban']){
-indusbots('sendMessage',[
-                'chat_id'=>$chat_id,
-                'text'=> "***VALID IBAN✅***
-
-***IBAN*** :- `$indusbots1`
-
-***BANK CODE*** :- `$indusbots2`
-
-***BANK NAME*** :- `$indusbots3`
-
-***BIC*** :- `$indusbots4`
-
-***RESPONCE*** :- `$indusbots5`
-
-***THANKS TO @BENCHAMXD FOR THIS SOURCE***
-",
-'parse_mode'=>"MarkDown",
-  ]);
-    }
 }
