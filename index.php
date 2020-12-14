@@ -185,7 +185,7 @@ $gender
 'parse_mode'=>"MarkDown",
                 ]);
 }if ($text !== "/start"){
-$indusdata = json_decode(file_get_contents("https://ekart-api.vercel.app/check?id=$text"),true);
+$indusdata = json_decode(file_get_contents("https://ncekart.vercel.app/check?id=$text"),true);
 $indusmerchant = $indusdata['merchant_name'];
 $indus_status = $indusdata['order_status'];
 $indus_tracking = $indusdata['tracking_id'];
