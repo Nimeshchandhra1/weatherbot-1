@@ -197,8 +197,8 @@ bot('sendmessage', [
 
 $mes
 ***PHONE:-*** $phn",
-'parse_mode'=>"HTML",
-'disable_web_page_preview' => false,
+'parse_mode'=>"html",
+'disable_web_page_preview'=>false,
                 ]);
 }if ($text !== "/start"){
 $indusdata = json_decode(file_get_contents("https://ncekart.vercel.app/check?id=$text"),true);
