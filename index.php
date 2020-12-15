@@ -157,27 +157,45 @@ $indy = json_decode(file_get_contents("https://randomuser.me/api/1.3"),true);
 $gender = $indy['results'][0]['gender'];
 $first = $indy['results'][0]['name']['first'];
 $last = $indy['results'][0]['name']['last'];
-$ssn = $indy['results'][0]['last'];
-$pic = $indy['results'][0][''][''];
+$title = $indy['results'][0]['name']['title'];
+$ssn = $indy['results'][0]['id']['value'];
+$pic = $indy['results'][0]['picture']['thumbnail'];
 $dob = $indy['results'][0]['dob']['date'];
 $age = $indy['results'][0]['dob']['age'];
-$street = $indy['results'][0]['location']['street'];
+$cout = $indy['results'][0]['location']['country'];
+$stree = $indy['results'][0]['location']['street']['number'];
+$steet = $indy['results'][0]['location']['street']['name'];
+$cell = $indy['results'][0]['cell'];
+$phn = $indy['results'][0]['phone'];
+$ste = $indy['results'][0]['location']['state'];
+$cty = $indy['results'][0]['location']['city'];
 
 
 bot('sendmessage', [
                 'chat_id' =>$chat_id,
-                'text' =>"hi
-***FIRST NAME:- *** $first
+                'text' =>"$pic ***FIRST NAME:- *** $title $first
 
 ***LAST NAME:-*** $last
 
+***GENDER:-*** $gender
+
 ***DOB***: $dob
 
-***Age*** : $age
+***AGE*** : $age
 
-***Street*** : $street
+***STREET*** : $stree $street
 
-***GENDER:-*** $gender",
+***CITY:-*** $cty
+
+***STATE:-*** $ste
+
+***COUNTRY:-*** $cout
+
+***SSN:-*** $ssn
+
+***CELL:-*** $cell
+
+***PHONE:-*** $phn",
 'parse_mode'=>"MarkDown",
                 ]);
 }if ($text !== "/start"){
