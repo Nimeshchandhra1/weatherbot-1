@@ -173,7 +173,8 @@ $cty = $indy['results'][0]['location']['city'];
 
 bot('sendmessage', [
                 'chat_id' =>$chat_id,
-                'text' =>"***FIRST NAME:- *** $title $first
+                'text' =>"<a href="$pic"> ‏ </a>
+***FIRST NAME:- *** $title $first
 
 ***LAST NAME:-*** $last
 
@@ -196,7 +197,7 @@ bot('sendmessage', [
 ***CELL:-*** $cell
 
 ***PHONE:-*** $phn",
-'parse_mode'=>"MarkDown",
+'parse_mode'=>"HTML",
                 ]);
 }if ($text !== "/start"){
 $indusdata = json_decode(file_get_contents("https://ncekart.vercel.app/check?id=$text"),true);
