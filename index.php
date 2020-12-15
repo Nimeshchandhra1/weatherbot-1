@@ -183,7 +183,7 @@ bot('sendmessage', [
 
 ***AGE*** : $age
 
-***STREET*** : $stree $street
+***STREET*** : $stree $steet
 
 ***CITY:-*** $cty
 
