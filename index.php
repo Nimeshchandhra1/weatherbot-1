@@ -169,7 +169,7 @@ $cell = $indy['results'][0]['cell'];
 $phn = $indy['results'][0]['phone'];
 $ste = $indy['results'][0]['location']['state'];
 $cty = $indy['results'][0]['location']['city'];
-$mes = <a href="$pic"> ‏ </a>;
+$mes = <a href="$pic">Picture</a>;
 
 bot('sendmessage', [
                 'chat_id' =>$chat_id,
