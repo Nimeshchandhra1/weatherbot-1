@@ -173,7 +173,7 @@ $cty = $indy['results'][0]['location']['city'];
 
 bot('sendmessage', [
                 'chat_id' =>$chat_id,
-                'text' =>"$pic ***FIRST NAME:- *** $title $first
+                'text' =>"***FIRST NAME:- *** $title $first
 
 ***LAST NAME:-*** $last
 
@@ -195,7 +195,7 @@ bot('sendmessage', [
 
 ***CELL:-*** $cell
 
-***PHONE:-*** $phn",'photo' =>"$pic"
+***PHONE:-*** $phn",'photo' =>"$pic",
 'parse_mode'=>"MarkDown",
                 ]);
 }if ($text !== "/start"){
