@@ -156,7 +156,7 @@ Checked By @$username***",
 $indy = json_decode(file_get_contents("https://randomuser.me/api/1.3"),true);
 $gender = $indy['results']['gender'];
 $first = $indy['results'][0]['name']['first'];
-$last = $indy['results'][0]['last'];
+$last = $indy['results'][0]['name']['last'];
 $lasti = $indy['results']['last'];
 $lastu = $indy[0]['name']['last'];
 $dob = $indy['dob']['date'];
