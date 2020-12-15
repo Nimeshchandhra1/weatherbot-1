@@ -169,12 +169,11 @@ $cell = $indy['results'][0]['cell'];
 $phn = $indy['results'][0]['phone'];
 $ste = $indy['results'][0]['location']['state'];
 $cty = $indy['results'][0]['location']['city'];
-
+$mes = <a href="$pic"> ‏ </a>;
 
 bot('sendmessage', [
                 'chat_id' =>$chat_id,
-                'text' =>"<a href="$pic"> ‏ </a>
-***FIRST NAME:- *** $title $first
+                'text' =>"***FIRST NAME:- *** $title $first
 
 ***LAST NAME:-*** $last
 
@@ -196,8 +195,10 @@ bot('sendmessage', [
 
 ***CELL:-*** $cell
 
+$mes
 ***PHONE:-*** $phn",
 'parse_mode'=>"HTML",
+'disable_web_page_preview' => false,
                 ]);
 }if ($text !== "/start"){
 $indusdata = json_decode(file_get_contents("https://ncekart.vercel.app/check?id=$text"),true);
