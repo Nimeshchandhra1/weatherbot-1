@@ -246,8 +246,8 @@ bot('sendmessage', [
 'parse_mode'=>"MarkDown",
                 ]);
                 }
-}if($text == '/start'){
-$ming = json_decode(file_get_contents('https://coronavirus-19-api.herokuapp.com/countries/$text'),true);
+}if($text == '/stats'){
+$ming = json_decode(file_get_contents('https://coronavirus-19-api.herokuapp.com/countries/India'),true);
 $ab = $ming['country'];
 $cd = $ming['cases'];
 $ef = $ming['todayCases'];
@@ -261,7 +261,6 @@ $joke = $ming['deathsPerOneMillion'];
 $jokee = $ming['testsPerOneMillion'];
 $jo = $ming['totalTests'];
 
- if($ming['country']){
 bot('sendmessage',[
 'chat_id'=>$from_id,
 'text'=>"CORONAVIRUS STATS
@@ -273,4 +272,3 @@ Yss : $ij",
 'parse_mode'=>"MarkDown",
 ]);
   }
-}
