@@ -153,7 +153,7 @@ Checked By @$username***",
 ]);
     }
 }if($text == '/gn'){
-$indy = json_decode(file_get_contents("https://randomuser.me/api/"),true);
+$indy = json_decode(file_get_contents("https://randomuser.me/api/1.3"),true);
 $gender = $indy['results']['gender'];
 $first = $indy['results'][0]['name']['first'];
 $last = $indy['results'][0]['last'];
@@ -166,8 +166,8 @@ $street = $indy['location']['$street'];
 
 bot('sendmessage', [
                 'chat_id' =>$chat_id,
-                'text' =>" hi
-***FIRST NAME:- *** $gender
+                'text' =>"hi
+***FIRST NAME:- *** $first
 
 ***LAST NAME:-*** $last  $lasti  $lastu
 $lastu
@@ -205,7 +205,7 @@ bot('sendmessage', [
                 'chat_id' =>$chat_id,
                 'text' =>"𝗧𝗥𝗔𝗖𝗞𝗜𝗡𝗚 𝗜𝗗 :- `$indus_tracking`
                 
-𝐂𝐔𝐑𝐑𝐄𝐍𝐓 𝐒𝐓𝐀𝐓𝐔𝐒:- $indus_status
+`𝐂𝐔𝐑𝐑𝐄𝐍𝐓 𝐒𝐓𝐀𝐓𝐔𝐒`:- ***$indus_status***
 
 ***🄼🄴🅁🄲🄷🄰🄽🅃***:- ***$indusmerchant***
                
