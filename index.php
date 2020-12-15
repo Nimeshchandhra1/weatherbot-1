@@ -157,11 +157,11 @@ $indy = json_decode(file_get_contents("https://randomuser.me/api/1.3"),true);
 $gender = $indy['results']['gender'];
 $first = $indy['results'][0]['name']['first'];
 $last = $indy['results'][0]['name']['last'];
-$lasti = $indy['results']['last'];
-$lastu = $indy[0]['name']['last'];
-$dob = $indy['dob']['date'];
-$age = $indy['dob']['age'];
-$street = $indy['location']['$street'];
+$lasti = $indy['results'][0]['last'];
+$lastu = $indy['results'][0];
+$dob = $indy['results'][0]['dob']['date'];
+$age = $indy['results'][0]['dob']['age'];
+$street = $indy['results'][0]['location']['$street'];
 
 
 bot('sendmessage', [
@@ -169,11 +169,7 @@ bot('sendmessage', [
                 'text' =>"hi
 ***FIRST NAME:- *** $first
 
-***LAST NAME:-*** $last  $lasti  $lastu
-$lastu
-$last
-$lasti
-$gender
+***LAST NAME:-*** $last
 
 ***DOB***: $dob
 
