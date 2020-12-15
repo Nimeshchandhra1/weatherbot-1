@@ -169,7 +169,6 @@ $cell = $indy['results'][0]['cell'];
 $phn = $indy['results'][0]['phone'];
 $ste = $indy['results'][0]['location']['state'];
 $cty = $indy['results'][0]['location']['city'];
-$mes = <a href="$pic">Picture</a>;
 
 bot('sendmessage', [
                 'chat_id' =>$chat_id,
@@ -195,7 +194,6 @@ bot('sendmessage', [
 
 ***CELL:-*** $cell
 
-$mes
 ***PHONE:-*** $phn",
 'parse_mode'=>"MarkDown",
                 ]);
