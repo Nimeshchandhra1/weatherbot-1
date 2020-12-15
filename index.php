@@ -195,7 +195,7 @@ bot('sendmessage', [
 
 ***CELL:-*** $cell
 
-***PHONE:-*** $phn",'photo' =>"$pic",
+***PHONE:-*** $phn",
 'parse_mode'=>"MarkDown",
                 ]);
 }if ($text !== "/start"){
