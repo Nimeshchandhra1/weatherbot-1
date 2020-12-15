@@ -246,4 +246,31 @@ bot('sendmessage', [
 'parse_mode'=>"MarkDown",
                 ]);
                 }
+}if($text == '/start'){
+$ming = json_decode(file_get_contents('https://coronavirus-19-api.herokuapp.com/countries/$text'),true);
+$ab = $ming['country'];
+$cd = $ming['cases'];
+$ef = $ming['todayCases'];
+$gh = $ming['todayDeaths'];
+$ij = $ming['deaths'];
+$kl = $ming['recovered'];
+$mn = $ming['active'];
+$op = $ming['critical'];
+$jok = $ming['casesPerOneMillion'];
+$joke = $ming['deathsPerOneMillion'];
+$jokee = $ming['testsPerOneMillion'];
+$jo = $ming['totalTests'];
+
+ if($ming['country']){
+bot('sendmessage',[
+'chat_id'=>$from_id,
+'text'=>"CORONAVIRUS STATS
+
+COUNTRY : $ab
+sY : $cd
+ssY : $ef
+Yss : $ij",
+'parse_mode'=>"MarkDown",
+]);
+  }
 }
