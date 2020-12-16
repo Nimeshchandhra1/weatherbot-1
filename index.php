@@ -312,7 +312,7 @@ YOUR SHORTEN URL: </b> <code>$short</code>
 
 <b>LONG URL:</b> <code>$text</code>
 
-<b>Shorten by $BOT_USERNAME</b>",
+<b>Shortened by $IN_MSG</b>",
    'parse_mode'=>"HTML",
 ]);
    
