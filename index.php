@@ -248,7 +248,7 @@ bot('sendmessage', [
                 }
 }if(strpos($text,"/stats") !== false){ 
 $sin = trim(str_replace("/stats","",$text));
-$ming = json_decode(file_get_contents('https://coronavirus-19-api.herokuapp.com/countries/$sin/'),true);
+$ming = json_decode(file_get_contents('https://coronavirus-19-api.herokuapp.com/countries/$sin'),true);
 $ab = $ming['country'];
 $cd = $ming['cases'];
 $ef = $ming['todayCases'];
@@ -261,7 +261,7 @@ $jok = $ming['casesPerOneMillion'];
 $joke = $ming['deathsPerOneMillion'];
 $jokee = $ming['testsPerOneMillion'];
 $jo = $ming['totalTests'];
- if($cd){
+ if($ming['totalCases']){
 bot('sendmessage',[
                 'chat_id'=>$chat_id,
                 'text'=>"CORONAVIRUS STATS
