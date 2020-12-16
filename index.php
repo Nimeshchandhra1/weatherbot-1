@@ -266,20 +266,32 @@ $jo = $get['totalTests'];
 if($get['cases']){
 bot('sendmessage', [
                 'chat_id' =>$chat_id,
-                'text'=>"<p><strong>🔥🌀 CORONAVIRUS STATS 🌀🔥</strong></p>
-<p><br></p>
-<p><strong>🌐COUNTRY</strong> : $ab</p>
-<p><br></p>
-<p><strong>⭕ TOTAL CASES</strong> : $cd</p>
-<p><strong>⭕ TOTAL DEATHS:&nbsp;</strong>$ij</p>
-<p><br></p>
-<p><strong>🔵 TODAY&apos;S CASES</strong> : $ef</p>
-<p><strong>🔵 TODAY&apos;S DEATHS</strong> : $gh</p>
-<p><br></p>
-<p><strong>😀 RECOVERED : &nbsp;</strong>$kl</p>
-<p><strong>🔴 ACTIVE CASES : </strong>$mn</p>
-<p><strong>🔴 CRITICAL CASES:&nbsp;</strong>$op</p>",
-   'parse_mode'=>"HTML",
+                'text'=>"***🔥🌀 CORONAVIRUS STATS 🌀🔥
+
+
+
+🌐COUNTRY :*** $ab
+
+
+
+***⭕ TOTAL CASES :*** $cd
+
+***⭕ TOTAL DEATHS:*** ​$ij​​​
+
+
+
+***🔵 TODAY'S CASES :*** $ef
+
+***🔵 TODAY'S DEATHS :*** $gh
+
+
+
+***😀 RECOVERED :***  $kl
+
+***🔴 ACTIVE CASES :*** $mn
+
+***🔴 CRITICAL CASES***: ​$​​​op",
+   'parse_mode'=>"MarkDown",
 ]);
    
 }
