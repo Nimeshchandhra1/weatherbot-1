@@ -261,10 +261,10 @@ $jok = $ming['casesPerOneMillion'];
 $joke = $ming['deathsPerOneMillion'];
 $jokee = $ming['testsPerOneMillion'];
 $jo = $ming['totalTests'];
-if($ming['testsPerOneMillion']){
+ if($ming['active']){
 bot('sendmessage',[
-'chat_id'=>$from_id,
-'text'=>"CORONAVIRUS STATS
+                'chat_id'=>$chat_id,
+                'text'=>"CORONAVIRUS STATS
 
 COUNTRY : $ab
 Cases : $cd
