@@ -47,6 +47,7 @@ $START_MESSAGE = $_ENV['START_MESSAGE'];
 $HELP_MENU = $_ENV['HELP_MENU'];
 $API_TOKEN = $_ENV['API_TOKEN'];
 $IN_MSG = $_ENV['IN_MSG'];
+$GP_API_KEY = $_ENV['GP_API_KEY'];
 if($text == '/start')
 bot('sendmessage', [
                 'chat_id' =>$chat_id,
@@ -290,8 +291,29 @@ bot('sendmessage', [
 
 ***🔴 ACTIVE CASES :*** $mn
 
-***🔴 CRITICAL CASES:*** $critic",
+***🔴 CRITICAL CASES:*** $critic
+
+*Your Command* : $text ",
    'parse_mode'=>"MarkDown",
+]);
+   
+}
+}if($text !== '/start'){
+
+$get = json_decode(file_get_contents("https://gplinks.in/api?api=$GP_API_KEY&url=$text"),true);
+$short = $get['shortenedUrl'];
+
+if($get['shortenedUrl']){
+bot('sendmessage', [
+                'chat_id' =>$chat_id,
+                'text'=>"<b>Thank you for using me☺
+
+YOUR SHORTEN URL: </b> <code>$short</code>
+
+<b>LONG URL:</b> <code>$text</code>
+
+<b>Shorten by $BOT_USERNAME</b>",
+   'parse_mode'=>"HTML",
 ]);
    
 }
