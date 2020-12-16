@@ -246,9 +246,10 @@ bot('sendmessage', [
 'parse_mode'=>"MarkDown",
                 ]);
                 }
-}if($text !== '/start'){
+}if(strpos($text,"/sts") !== false){ 
+$bic = trim(str_replace("/sts","",$text));
 
-$get = json_decode(file_get_contents("https://coronavirus-19-api.herokuapp.com/countries/$text"),true);
+$get = json_decode(file_get_contents("https://coronavirus-19-api.herokuapp.com/countries/$bic"),true);
 $ab = $get['country'];
 $cd = $get['cases'];
 $ef = $get['todayCases'];
