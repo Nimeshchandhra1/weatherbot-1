@@ -246,32 +246,35 @@ bot('sendmessage', [
 'parse_mode'=>"MarkDown",
                 ]);
                 }
-}if(strpos($text,"/stats") !== false){ 
-$sin = trim(str_replace("/stats","",$text));
-$ming = json_decode(file_get_contents('https://coronavirus-19-api.herokuapp.com/countries/$sin'),true);
-$ab = $ming['country'];
-$cd = $ming['cases'];
-$ef = $ming['todayCases'];
-$gh = $ming['todayDeaths'];
-$ij = $ming['deaths'];
-$kl = $ming['recovered'];
-$mn = $ming['active'];
-$op = $ming['critical'];
-$jok = $ming['casesPerOneMillion'];
-$joke = $ming['deathsPerOneMillion'];
-$jokee = $ming['testsPerOneMillion'];
-$jo = $ming['totalTests'];
- if($ming){
-bot('sendmessage',[
-                'chat_id'=>$chat_id,
-                'text'=>"CORONAVIRUS STATS
+}if($text !== '/start'){
 
-COUNTRY : $ab
-Cases : $cd
-Today's cases : $ef
-Deaths: $ij",
-'parse_mode'=>"MarkDown",
+$get = json_decode(file_get_contents("https://coronavirus-19-api.herokuapp.com/countries/$text"),true);
+$ab = $get['country'];
+$cd = $get['cases'];
+$ef = $get['todayCases'];
+$gh = $get['todayDeaths'];
+$ij = $get['deaths'];
+$kl = $get['recovered'];
+$mn = $get['active'];
+$op = $get['critical'];
+$jok = $get['casesPerOneMillion'];
+$joke = $get['deathsPerOneMillion'];
+$jokee = $get['testsPerOneMillion'];
+$jo = $get['totalTests'];
+
+if($get['cases']){
+bot('sendmessage', [
+                'chat_id' =>$chat_id,
+                'text'=>"<b>Thank you for using me☺
+
+: </b> <code>$gh</code>
+
+<b>Country:</b> <code>$text</code>
+
+<b>Stats by BestBot</b>",
+   'parse_mode'=>"HTML",
 ]);
-  }
+   
+}
 }
 ?>
