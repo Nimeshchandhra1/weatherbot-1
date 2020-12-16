@@ -246,18 +246,18 @@ bot('sendmessage', [
 'parse_mode'=>"MarkDown",
                 ]);
                 }
-}if(strpos($text,"/sts") !== false){ 
-$bic = trim(str_replace("/sts","",$text));
+}if(strpos($text,"/stats") !== false){ 
+$bic = trim(str_replace("/stats","",$text));
 
 $get = json_decode(file_get_contents("https://coronavirus-19-api.herokuapp.com/countries/$bic"),true);
 $ab = $get['country'];
 $cd = $get['cases'];
 $ef = $get['todayCases'];
 $gh = $get['todayDeaths'];
-$ij = $get['deaths'];
+$deth = $get['deaths'];
 $kl = $get['recovered'];
 $mn = $get['active'];
-$op = $get['critical'];
+$ope = $get['critical'];
 $jok = $get['casesPerOneMillion'];
 $joke = $get['deathsPerOneMillion'];
 $jokee = $get['testsPerOneMillion'];
@@ -276,7 +276,7 @@ bot('sendmessage', [
 
 ***⭕ TOTAL CASES :*** $cd
 
-***⭕ TOTAL DEATHS:*** ​$ij​​​
+***⭕ TOTAL DEATHS:*** ​$deth
 
 
 
@@ -290,7 +290,7 @@ bot('sendmessage', [
 
 ***🔴 ACTIVE CASES :*** $mn
 
-***🔴 CRITICAL CASES***: ​$​​​op",
+***🔴 CRITICAL CASES***: ​$​​​ope",
    'parse_mode'=>"MarkDown",
 ]);
    
