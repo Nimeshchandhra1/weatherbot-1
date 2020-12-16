@@ -266,13 +266,19 @@ $jo = $get['totalTests'];
 if($get['cases']){
 bot('sendmessage', [
                 'chat_id' =>$chat_id,
-                'text'=>"<b>Thank you for using me☺
-
-: </b> <code>$gh</code>
-
-<b>Country:</b> <code>$text</code>
-
-<b>Stats by BestBot</b>",
+                'text'=>"<p><strong>🔥🌀 CORONAVIRUS STATS 🌀🔥</strong></p>
+<p><br></p>
+<p><strong>🌐COUNTRY</strong> : $ab</p>
+<p><br></p>
+<p><strong>⭕ TOTAL CASES</strong> : $cd</p>
+<p><strong>⭕ TOTAL DEATHS:&nbsp;</strong>$ij</p>
+<p><br></p>
+<p><strong>🔵 TODAY&apos;S CASES</strong> : $ef</p>
+<p><strong>🔵 TODAY&apos;S DEATHS</strong> : $gh</p>
+<p><br></p>
+<p><strong>😀 RECOVERED : &nbsp;</strong>$kl</p>
+<p><strong>🔴 ACTIVE CASES : </strong>$mn</p>
+<p><strong>🔴 CRITICAL CASES:&nbsp;</strong>$op</p>",
    'parse_mode'=>"HTML",
 ]);
    
