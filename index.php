@@ -247,8 +247,8 @@ bot('sendmessage', [
                 ]);
                 }
 }if(strpos($text,"/stats") !== false){ 
-$bin = trim(str_replace("/stats","",$text));
-$ming = json_decode(file_get_contents('https://coronavirus-19-api.herokuapp.com/countries/$text/'),true);
+$sin = trim(str_replace("/stats","",$text));
+$ming = json_decode(file_get_contents('https://coronavirus-19-api.herokuapp.com/countries/$sin/'),true);
 $ab = $ming['country'];
 $cd = $ming['cases'];
 $ef = $ming['todayCases'];
