@@ -257,7 +257,7 @@ $gh = $get['todayDeaths'];
 $deth = $get['deaths'];
 $kl = $get['recovered'];
 $mn = $get['active'];
-$ope = $get['critical'];
+$critic = $get['critical'];
 $jok = $get['casesPerOneMillion'];
 $joke = $get['deathsPerOneMillion'];
 $jokee = $get['testsPerOneMillion'];
@@ -290,7 +290,7 @@ bot('sendmessage', [
 
 ***🔴 ACTIVE CASES :*** $mn
 
-***🔴 CRITICAL CASES***: ​$​​​ope",
+***🔴 CRITICAL CASES:*** $critic",
    'parse_mode'=>"MarkDown",
 ]);
    
