@@ -261,7 +261,7 @@ $jok = $ming['casesPerOneMillion'];
 $joke = $ming['deathsPerOneMillion'];
 $jokee = $ming['testsPerOneMillion'];
 $jo = $ming['totalTests'];
- if($ming['totalCases']){
+ if($sin){
 bot('sendmessage',[
                 'chat_id'=>$chat_id,
                 'text'=>"CORONAVIRUS STATS
